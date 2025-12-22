@@ -1,16 +1,18 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "About Vitaly";
+ViewData["Title"] = "About Vitaly";
 }
 
+@if (Model.MyPersonData != null)
+{
 <div class="profile-section">
     <div class="profile-card">
 
         <div class="left-column">
             <div class="profile-image-container">
                 <img src="~/images/photo_2025-11-06_14-27-22.jpg"
-                     alt="Віталій"
+                     alt="@Model.MyPersonData.FirstName"
                      class="profile-image">
             </div>
             <div class="canvas-container">
@@ -24,28 +26,24 @@
                 <span id="typewriter"></span><span class="cursor"></span>
             </div>
 
-            <h1>Віталій</h1>
+            <h1>@Model.MyPersonData.FirstName</h1>
 
             <div class="bio">
-                <p>Меня зовут Виталий, мне 18 лет. Живу в Черкассах. Учусь в Черкасском национальном университете по специальности <strong>105 Прикладная физика</strong> (2 курс). В целом нахожусь на 4-5 месте в рейтинге.</p>
-                <p>Также учусь в Академии на разработчика программного обеспечения. С 15 лет занимаюсь веб-разработкой, имею свой первый сайт-портфолио.</p>
-                <p>Программирование заинтересовало меня тем, что это прогрессивная сфера, которая стремительно меняется. На прикладную физику поступил, потому что люблю математику и физику, а также хочу понимать, как устроен мир, и решать сложные задачи, которые не под силу другим.</p>
-                <p>Недавно участвовал в хакатоне <strong>NASA Space Apps Challenge 2025</strong>, где мы разрабатывали проект для прогнозирования на основе данных со спутников за 20 лет.</p>
-                <p>Также у меня есть идеи для дипломной работы и личного пет-проекта: создание персонального ИИ-ассистента на базе локальных мат. моделей для анализа и улучшения коммуникативных навыков.</p>
-                <p>Нужно конечно приводить все в порядок в "премиальный" уровень и начинать искать работу на тех стеках, что я уже изучал. Спасибо что читали)</p>
+                <p>@Model.MyPersonData.Description</p>
+
+                <p><strong>Email:</strong> @Model.MyPersonData.Email</p>
+                <p><strong>Телефон:</strong> @Model.MyPersonData.Phone</p>
             </div>
 
             <div class="skills-section">
                 <div class="skills-title">Мій стек технологій</div>
                 <div class="tech-stack">
-                    <span class="tech-badge">C# / .NET</span>
-                    <span class="tech-badge">ASP.NET Core</span>
-                    <span class="tech-badge">C++</span>
-                    <span class="tech-badge">SQL</span>
-                    <span class="tech-badge">HTML / CSS</span>
-                    <span class="tech-badge">JavaScript</span>
-                    <span class="tech-badge">React</span>
-                    <span class="tech-badge">TypeScript</span>
+                    @foreach (var skill in Model.MyPersonData.Skills)
+                    {
+                    <span class="tech-badge">
+                                @skill.Name 
+                                </span>
+                    }
                 </div>
             </div>
 
@@ -57,24 +55,33 @@
         </div>
     </div>
 </div>
+}
+else
+{
+<div class="alert alert-danger">
+    Ошибка: Данные не загружены. Проверьте наличие файла persondata.json.
+</div>
+}
 
 @section Scripts {
-    <script>
-        // --- 1. Печатающийся заголовок ---
-        const phrases = ['Console.WriteLine("Hello World!");', 'std::cout << "Hello World!";', 'print("Hello World!")', 'SELECT "Hello World";'];
-        let currentPhraseIndex = 0, isDeleting = false, txt = '', typeSpeed = 100;
-        function type() {
-            const currentPhrase = phrases[currentPhraseIndex];
-            if (isDeleting) { txt = currentPhrase.substring(0, txt.length - 1); typeSpeed = 50; }
-            else { txt = currentPhrase.substring(0, txt.length + 1); typeSpeed = 150; }
-            document.getElementById('typewriter').textContent = txt;
-            if (!isDeleting && txt === currentPhrase) { typeSpeed = 2000; isDeleting = true; }
-            else if (isDeleting && txt === '') { isDeleting = false; currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length; typeSpeed = 500; }
-            setTimeout(type, typeSpeed);
-        }
+<script>
+    const phrases = ['Console.WriteLine("Hello World!");', 'std::cout << "Hello World!";', 'print("Hello World!")', 'SELECT "Hello World";'];
+    let currentPhraseIndex = 0, isDeleting = false, txt = '', typeSpeed = 100;
+    function type() {
+        const currentPhrase = phrases[currentPhraseIndex];
+        if (isDeleting) { txt = currentPhrase.substring(0, txt.length - 1); typeSpeed = 50; }
+        else { txt = currentPhrase.substring(0, txt.length + 1); typeSpeed = 150; }
+        // JS ищет элемент по ID 'typewriter', который мы сохранили в HTML выше
+        let element = document.getElementById('typewriter');
+        if(element) element.textContent = txt;
 
-        // --- 2. Анимация частиц ---
-        const canvas = document.getElementById('techCanvas');
+        if (!isDeleting && txt === currentPhrase) { typeSpeed = 2000; isDeleting = true; }
+        else if (isDeleting && txt === '') { isDeleting = false; currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length; typeSpeed = 500; }
+        setTimeout(type, typeSpeed);
+    }
+
+    const canvas = document.getElementById('techCanvas');
+    if (canvas) { // Проверка на всякий случай
         const ctx = canvas.getContext('2d');
         let particlesArray;
         function initCanvasSize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
@@ -104,12 +111,12 @@
             }
         }
         function animate() { requestAnimationFrame(animate); ctx.clearRect(0,0,canvas.width,canvas.height); particlesArray.forEach(p => p.update()); connect(); }
-
-        // --- 3. Печатающийся код ---
+        
         const snippets = ['#include <iostream>\nint main() {\n std::cout<<"Hi!";\n return 0;\n}', 'using System;\nclass P {\n static void Main() {\n  Console.Write("Yo");\n }\n}', 'def hello():\n  return "Hello!"\nprint(hello())'];
         let sIndex = 0, cIndex = 0, isDelCode = false;
         function typeCode() {
             const snip = snippets[sIndex], el = document.getElementById('code-overlay');
+            if(!el) return;
             let spd = 50;
             if (isDelCode) { el.textContent = snip.substring(0, cIndex--); spd = 30; }
             else { el.textContent = snip.substring(0, cIndex++); }
@@ -120,5 +127,6 @@
 
         window.onload = () => { type(); initCanvasSize(); initParticles(); animate(); typeCode(); };
         window.onresize = () => { initCanvasSize(); initParticles(); };
-    </script>
+    }
+</script>
 }

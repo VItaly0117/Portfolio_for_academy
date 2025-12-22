@@ -1,0 +1,16 @@
+﻿[
+  {
+    "Id": 1,
+    "FirstName": "Виталий",
+    "LastName": "Фамилия",
+    "JobTitle": "Начинающий .NET Разработчик",
+    "Description": "Я изучаю программирование и создаю свой первый портфолио-сайт на ASP.NET Core.",
+    "Email": "vitaly@example.com",
+    "Phone": "+380 00 000 0000",
+    "Skills": [
+      { "Name": "C#", "Level": 40 },
+      { "Name": "ASP.NET Core", "Level": 30 },
+      { "Name": "HTML/CSS", "Level": 50 }
+    ]
+  }
+]
