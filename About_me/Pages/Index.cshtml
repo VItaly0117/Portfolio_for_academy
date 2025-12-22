@@ -1,0 +1,124 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "About Vitaly";
+}
+
+<div class="profile-section">
+    <div class="profile-card">
+
+        <div class="left-column">
+            <div class="profile-image-container">
+                <img src="~/images/photo_2025-11-06_14-27-22.jpg"
+                     alt="Віталій"
+                     class="profile-image">
+            </div>
+            <div class="canvas-container">
+                <canvas id="techCanvas"></canvas>
+                <div id="code-overlay" class="code-overlay"></div>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <div class="hello-wrapper">
+                <span id="typewriter"></span><span class="cursor"></span>
+            </div>
+
+            <h1>Віталій</h1>
+
+            <div class="bio">
+                <p>Меня зовут Виталий, мне 18 лет. Живу в Черкассах. Учусь в Черкасском национальном университете по специальности <strong>105 Прикладная физика</strong> (2 курс). В целом нахожусь на 4-5 месте в рейтинге.</p>
+                <p>Также учусь в Академии на разработчика программного обеспечения. С 15 лет занимаюсь веб-разработкой, имею свой первый сайт-портфолио.</p>
+                <p>Программирование заинтересовало меня тем, что это прогрессивная сфера, которая стремительно меняется. На прикладную физику поступил, потому что люблю математику и физику, а также хочу понимать, как устроен мир, и решать сложные задачи, которые не под силу другим.</p>
+                <p>Недавно участвовал в хакатоне <strong>NASA Space Apps Challenge 2025</strong>, где мы разрабатывали проект для прогнозирования на основе данных со спутников за 20 лет.</p>
+                <p>Также у меня есть идеи для дипломной работы и личного пет-проекта: создание персонального ИИ-ассистента на базе локальных мат. моделей для анализа и улучшения коммуникативных навыков.</p>
+                <p>Нужно конечно приводить все в порядок в "премиальный" уровень и начинать искать работу на тех стеках, что я уже изучал. Спасибо что читали)</p>
+            </div>
+
+            <div class="skills-section">
+                <div class="skills-title">Мій стек технологій</div>
+                <div class="tech-stack">
+                    <span class="tech-badge">C# / .NET</span>
+                    <span class="tech-badge">ASP.NET Core</span>
+                    <span class="tech-badge">C++</span>
+                    <span class="tech-badge">SQL</span>
+                    <span class="tech-badge">HTML / CSS</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">React</span>
+                    <span class="tech-badge">TypeScript</span>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/Vitaly0117" target="_blank" class="social-btn">GitHub</a>
+                <a href="https://t.me/Regie_117" target="_blank" class="social-btn">Telegram</a>
+                <a href="https://vitaly0117.github.io/" target="_blank" class="social-btn portfolio-btn">Old Portfolio</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // --- 1. Печатающийся заголовок ---
+        const phrases = ['Console.WriteLine("Hello World!");', 'std::cout << "Hello World!";', 'print("Hello World!")', 'SELECT "Hello World";'];
+        let currentPhraseIndex = 0, isDeleting = false, txt = '', typeSpeed = 100;
+        function type() {
+            const currentPhrase = phrases[currentPhraseIndex];
+            if (isDeleting) { txt = currentPhrase.substring(0, txt.length - 1); typeSpeed = 50; }
+            else { txt = currentPhrase.substring(0, txt.length + 1); typeSpeed = 150; }
+            document.getElementById('typewriter').textContent = txt;
+            if (!isDeleting && txt === currentPhrase) { typeSpeed = 2000; isDeleting = true; }
+            else if (isDeleting && txt === '') { isDeleting = false; currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length; typeSpeed = 500; }
+            setTimeout(type, typeSpeed);
+        }
+
+        // --- 2. Анимация частиц ---
+        const canvas = document.getElementById('techCanvas');
+        const ctx = canvas.getContext('2d');
+        let particlesArray;
+        function initCanvasSize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
+        class Particle {
+            constructor(x, y, dX, dY, size, color) { this.x = x; this.y = y; this.dX = dX; this.dY = dY; this.size = size; this.color = color; }
+            draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI*2); ctx.fillStyle = this.color; ctx.fill(); }
+            update() { if(this.x>canvas.width||this.x<0)this.dX=-this.dX; if(this.y>canvas.height||this.y<0)this.dY=-this.dY; this.x+=this.dX; this.y+=this.dY; this.draw(); }
+        }
+        function initParticles() {
+            particlesArray = [];
+            let numParticles = (canvas.height * canvas.width) / 6000;
+            for(let i=0; i<numParticles; i++){
+                let size=(Math.random()*2)+1, x=(Math.random()*(canvas.width-size*2)+size*2), y=(Math.random()*(canvas.height-size*2)+size*2),
+                    dX=(Math.random()*0.4)-0.2, dY=(Math.random()*0.4)-0.2;
+                particlesArray.push(new Particle(x, y, dX, dY, size, '#519fff'));
+            }
+        }
+        function connect() {
+            for(let a=0;a<particlesArray.length;a++){
+                for(let b=a;b<particlesArray.length;b++){
+                    let dist=((particlesArray[a].x-particlesArray[b].x)**2)+((particlesArray[a].y-particlesArray[b].y)**2);
+                    if(dist<(canvas.width/7)*(canvas.height/7)){
+                        ctx.strokeStyle='rgba(81,159,255,'+(1-dist/15000)+')'; ctx.lineWidth=1;
+                        ctx.beginPath(); ctx.moveTo(particlesArray[a].x,particlesArray[a].y); ctx.lineTo(particlesArray[b].x,particlesArray[b].y); ctx.stroke();
+                    }
+                }
+            }
+        }
+        function animate() { requestAnimationFrame(animate); ctx.clearRect(0,0,canvas.width,canvas.height); particlesArray.forEach(p => p.update()); connect(); }
+
+        // --- 3. Печатающийся код ---
+        const snippets = ['#include <iostream>\nint main() {\n std::cout<<"Hi!";\n return 0;\n}', 'using System;\nclass P {\n static void Main() {\n  Console.Write("Yo");\n }\n}', 'def hello():\n  return "Hello!"\nprint(hello())'];
+        let sIndex = 0, cIndex = 0, isDelCode = false;
+        function typeCode() {
+            const snip = snippets[sIndex], el = document.getElementById('code-overlay');
+            let spd = 50;
+            if (isDelCode) { el.textContent = snip.substring(0, cIndex--); spd = 30; }
+            else { el.textContent = snip.substring(0, cIndex++); }
+            if (!isDelCode && cIndex === snip.length) { spd = 2000; isDelCode = true; }
+            else if (isDelCode && cIndex === 0) { isDelCode = false; sIndex = (sIndex + 1) % snippets.length; spd = 500; }
+            setTimeout(typeCode, spd);
+        }
+
+        window.onload = () => { type(); initCanvasSize(); initParticles(); animate(); typeCode(); };
+        window.onresize = () => { initCanvasSize(); initParticles(); };
+    </script>
+}
