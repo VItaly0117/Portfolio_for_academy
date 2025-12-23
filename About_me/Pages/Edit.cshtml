@@ -1,0 +1,46 @@
+﻿@page "{id:int}" 
+@model About_me.Pages.EditModel
+@{
+    ViewData["Title"] = "Редагування профілю";
+}
+
+<div class="container mt-5">
+    <h2>Редагування профілю</h2>
+    
+    <form method="post" class="mt-4">
+        <input type="hidden" asp-for="Person.Id" />
+
+        <div class="mb-3">
+            <label class="form-label">Ім'я</label>
+            <input class="form-control" asp-for="Person.FirstName" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Прізвище</label>
+            <input class="form-control" asp-for="Person.LastName" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Посада (Job Title)</label>
+            <input class="form-control" asp-for="Person.JobTitle" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Опис (Про мене)</label>
+            <textarea class="form-control" asp-for="Person.Description" rows="5"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input class="form-control" asp-for="Person.Email" type="email" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Телефон</label>
+            <input class="form-control" asp-for="Person.Phone" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Зберегти зміни</button>
+        <a asp-page="Index" class="btn btn-secondary">Скасувати</a>
+    </form>
+</div>

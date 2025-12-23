@@ -4,7 +4,7 @@ namespace About_me.Services
 {
     public interface IPersonDataProvider
     {
-        // Метод для получения человека по ID
         Person GetPersonById(int id);
+        void UpdatePerson(Person person);
     }
 }
