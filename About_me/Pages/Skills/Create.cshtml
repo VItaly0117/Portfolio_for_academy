@@ -1,0 +1,26 @@
+@page
+@model About_me.Pages.Skills.CreateModel
+@{
+    ViewData["Title"] = "Додати навичку";
+}
+
+<h1>Додати навичку</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group mb-3">
+                <label asp-for="NewSkill.Name" class="control-label">Назва навички</label>
+                <input asp-for="NewSkill.Name" class="form-control" required />
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="NewSkill.Level" class="control-label">Рівень (0-100)</label>
+                <input asp-for="NewSkill.Level" type="number" min="0" max="100" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Зберегти</button>
+                <a asp-page="Index" class="btn btn-secondary">Скасувати</a>
+            </div>
+        </form>
+    </div>
+</div>

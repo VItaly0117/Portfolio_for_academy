@@ -1,7 +1,5 @@
 is_global = true
 build_property.TargetFramework = net9.0
-build_property.TargetFrameworkIdentifier = .NETCoreApp
-build_property.TargetFrameworkVersion = v9.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
@@ -11,45 +9,57 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = About_me
 build_property.RootNamespace = About_me
-build_property.ProjectDir = D:\Portfolio_for_academy\About_me\
+build_property.ProjectDir = /Users/kalinicenkovitalijmikolajovic/RiderProjects/Portfolio_for_academy/About_me/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Portfolio_for_academy\About_me
+build_property.MSBuildProjectDirectory = /Users/kalinicenkovitalijmikolajovic/RiderProjects/Portfolio_for_academy/About_me
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/Portfolio_for_academy/About_me/Pages/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdC5jc2h0bWw=
+[/Users/kalinicenkovitalijmikolajovic/RiderProjects/Portfolio_for_academy/About_me/Pages/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Portfolio_for_academy/About_me/Pages/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+[/Users/kalinicenkovitalijmikolajovic/RiderProjects/Portfolio_for_academy/About_me/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Portfolio_for_academy/About_me/Pages/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+[/Users/kalinicenkovitalijmikolajovic/RiderProjects/Portfolio_for_academy/About_me/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Portfolio_for_academy/About_me/Pages/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+[/Users/kalinicenkovitalijmikolajovic/RiderProjects/Portfolio_for_academy/About_me/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Portfolio_for_academy/About_me/Pages/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[/Users/kalinicenkovitalijmikolajovic/RiderProjects/Portfolio_for_academy/About_me/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Portfolio_for_academy/About_me/Pages/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[/Users/kalinicenkovitalijmikolajovic/RiderProjects/Portfolio_for_academy/About_me/Pages/Skills/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2tpbGxzL0NyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Portfolio_for_academy/About_me/Pages/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+[/Users/kalinicenkovitalijmikolajovic/RiderProjects/Portfolio_for_academy/About_me/Pages/Skills/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2tpbGxzL0VkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Portfolio_for_academy/About_me/Pages/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-b73l386lb3
+[/Users/kalinicenkovitalijmikolajovic/RiderProjects/Portfolio_for_academy/About_me/Pages/Skills/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2tpbGxzL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/kalinicenkovitalijmikolajovic/RiderProjects/Portfolio_for_academy/About_me/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/kalinicenkovitalijmikolajovic/RiderProjects/Portfolio_for_academy/About_me/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/kalinicenkovitalijmikolajovic/RiderProjects/Portfolio_for_academy/About_me/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-jejn2tium9

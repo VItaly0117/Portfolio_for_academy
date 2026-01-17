@@ -53,6 +53,7 @@ namespace About_me.Services
                 existingPerson.Description = person.Description;
                 existingPerson.Email = person.Email;
                 existingPerson.Phone = person.Phone;
+                existingPerson.Skills = person.Skills;
 
                 // 4. Зберігаємо назад у файл
                 var newJson = JsonSerializer.Serialize(people, new JsonSerializerOptions { WriteIndented = true });

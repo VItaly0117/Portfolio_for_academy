@@ -51,6 +51,42 @@ ViewData["Title"] = "About Vitaly";
                     }
                 </div>
             </div>
+            <hr />
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3>Мої навички</h3>
+                <a asp-page="/Skills/Index" class="btn btn-primary">Редагувати навички</a>
+            </div>
+
+            <div class="row">
+                @if (Model.MyPersonData?.Skills != null && Model.MyPersonData.Skills.Any())
+                {
+                    @foreach (var skill in Model.MyPersonData.Skills)
+                    {
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex justify-content-between">
+                                <strong>@skill.Name</strong>
+                                <span>@skill.Level%</span>
+                            </div>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar bg-info" 
+                                     role="progressbar" 
+                                     style="width: @skill.Level%;" 
+                                     aria-valuenow="@skill.Level" 
+                                     aria-valuemin="0" 
+                                     aria-valuemax="100">
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="col-12">
+                        <p class="text-muted">Навички ще не додані. Натисніть кнопку "Редагувати навички", щоб додати першу.</p>
+                    </div>
+                }
+            </div>
 
             <div class="social-links">
                 <a href="https://github.com/Vitaly0117" target="_blank" class="social-btn">GitHub</a>
