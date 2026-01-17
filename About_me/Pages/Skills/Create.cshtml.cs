@@ -40,7 +40,7 @@ namespace About_me.Pages.Skills
                 person.Skills.Add(NewSkill);
                 _provider.UpdatePerson(person);
             }
-
+            TempData["Success"] = "Skill created successfully!";
             return RedirectToPage("./Index", new { id });
         }
     }

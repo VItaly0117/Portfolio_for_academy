@@ -35,6 +35,7 @@ namespace About_me.Pages.Skills
                     _provider.UpdatePerson(person);
                 }
             }
+            TempData["Success"] = "Skill created successfully!";
             return RedirectToPage(new { id });
         }
     }
